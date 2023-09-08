@@ -28,6 +28,7 @@ const run = async (): Promise<void> => {
       repo,
       owner,
       updateOnly,
+      createOnly,
       messageCancelled,
       messageFailure,
       messageSuccess,
@@ -85,6 +86,12 @@ const run = async (): Promise<void> => {
     // if no existing comment and updateOnly is true, exit
     if (!existingComment && updateOnly) {
       core.info('no existing comment found and update-only is true, exiting')
+      core.setOutput('comment-created', 'false')
+      return
+    }
+
+    if (existingComment && createOnly) {
+      core.info('existing comment found and create-only is true, exiting')
       core.setOutput('comment-created', 'false')
       return
     }

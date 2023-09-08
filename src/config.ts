@@ -19,6 +19,7 @@ export async function getInputs(): Promise<Inputs> {
   const refreshMessagePosition =
     core.getInput('refresh-message-position', { required: false }) === 'true'
   const updateOnly = core.getInput('update-only', { required: false }) === 'true'
+  const createOnly = core.getInput('create-only', { required: false }) === 'true'
   const preformatted = core.getInput('preformatted', { required: false }) === 'true'
 
   if (messageInput && messagePath) {
@@ -54,5 +55,6 @@ export async function getInputs(): Promise<Inputs> {
     owner: repoOwner || payload.repo.owner,
     repo: repoName || payload.repo.repo,
     updateOnly: updateOnly,
+    createOnly: createOnly,
   }
 }
