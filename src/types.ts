@@ -23,6 +23,7 @@ export interface Inputs {
   status: string
   owner: string
   updateOnly: boolean
+  createOnly: boolean
 }
 
 export type CreateIssueCommentResponseData =

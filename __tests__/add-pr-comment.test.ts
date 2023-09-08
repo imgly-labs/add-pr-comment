@@ -31,6 +31,7 @@ type Inputs = {
   'message-cancelled'?: string
   'message-skipped'?: string
   'update-only'?: string
+  'create-only'?: string
   preformatted?: string
   status?: 'success' | 'failure' | 'cancelled' | 'skipped'
 }
